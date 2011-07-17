@@ -25,7 +25,7 @@ trait AcceptsSpec extends unfiltered.spec.Hosted {
     case GET(UFPath(Seg(ext :: Nil)) & Accepts.Html(_)) => ResponseString("html")
   }
   
-  "Accepts should" should {
+  "Accepts" should {
     "match an application/javascript accepts request as jsonp" in {
       val resp = Http(host / "test" <:< Map("Accept" -> "application/javascript")  as_str)
       resp must_=="javascript"
